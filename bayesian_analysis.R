@@ -51,5 +51,5 @@ bayesian_df <- data.frame(
 )
 
 write.csv(bayesian_df, "bayesian_results.csv", row.names = FALSE)
-cat("✅ 'bayesian_results.csv' is now dynamically updated!\n")
+cat("'bayesian_results.csv' is now dynamically updated!\n")
 
