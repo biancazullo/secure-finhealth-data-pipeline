@@ -63,9 +63,6 @@ rf_rec = locals().get('rf_recall', 0.0)
 with open('ml_evaluation_results.csv', mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(['model', 'accuracy', 'precision_class_1', 'recall_class_1'])
-    
-    writer.writerow(['Logistic Regression', round(lr_acc, 2), round(lr_prec, 2), round(lr_rec, 2)])
-    
     if rf_acc > 0:
         writer.writerow(['Random Forest (Baseline)', round(rf_acc, 2), round(rf_prec, 2), round(rf_rec, 2)])
 
