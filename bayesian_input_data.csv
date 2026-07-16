@@ -1,0 +1,3 @@
+is_fraud_risk,total_users,avg_income,avg_hospital_cost,total_txn_fraud_flags
+True,26,37678.88,0.0,2.0
+False,974,46916.03,74.48,0.0

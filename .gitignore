@@ -229,3 +229,5 @@ SINIOR_MARKET_SAMPLE_v1/
 
 # Ignore any local security environment credentials
 .env
+
+!bayesian_input_data.csv
