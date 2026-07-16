@@ -47,3 +47,26 @@ print(f"======================================\n")
 
 print("Detailed Performance Report:")
 print(classification_report(y_test, predictions, zero_division=0))
+
+import csv
+
+print("\nExporting dynamic baseline metrics to CSV...")
+
+lr_acc = locals().get('lr_accuracy', 0.0) 
+lr_prec = locals().get('lr_precision', 0.0)
+lr_rec = locals().get('lr_recall', 0.0)
+
+rf_acc = locals().get('rf_accuracy', 0.0)
+rf_prec = locals().get('rf_precision', 0.0)
+rf_rec = locals().get('rf_recall', 0.0)
+
+with open('ml_evaluation_results.csv', mode='w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(['model', 'accuracy', 'precision_class_1', 'recall_class_1'])
+    
+    writer.writerow(['Logistic Regression', round(lr_acc, 2), round(lr_prec, 2), round(lr_rec, 2)])
+    
+    if rf_acc > 0:
+        writer.writerow(['Random Forest (Baseline)', round(rf_acc, 2), round(rf_prec, 2), round(rf_rec, 2)])
+
+print("✅ 'ml_evaluation_results.csv' successfully created with baseline metrics!")

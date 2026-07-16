@@ -41,3 +41,15 @@ cat(sprintf("We are 95%% confident that the true, underlying fraud risk rate\n")
 cat(sprintf("in this system lies between %.2f%% and %.2f%%, given our prior\n", 
             credible_interval[1] * 100, credible_interval[2] * 100))
 cat("beliefs and the newly analyzed dataset.\n")
+
+
+cat("\nExporting dynamic Bayesian metrics to CSV...\n")
+
+bayesian_df <- data.frame(
+  metric = c("Prior Baseline", "Posterior Estimate", "Credible Interval Lower", "Credible Interval Upper"),
+  value = c(expected_prior_rate, expected_posterior_rate, credible_interval[1], credible_interval[2])
+)
+
+write.csv(bayesian_df, "bayesian_results.csv", row.names = FALSE)
+cat("✅ 'bayesian_results.csv' is now dynamically updated!\n")
+
